@@ -684,16 +684,29 @@ a:hover {
     }
 
     .project-links {
-        gap: 8px;
-        justify-content: space-between;
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: nowrap;
+      justify-content: center;
     }
 
     .project-links a {
-        flex: 1 1 calc(50% - 4px);
-        min-width: 110px;
-        max-width: none;
-        padding: 10px 8px;
-        font-size: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: none;
+      background-color: rgba(0, 255, 255, 0);
+      color: #fff;
+      padding: 10px 8px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-align: center;
+      font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .see-more-btn {
@@ -740,14 +753,85 @@ a:hover {
 }
 
 /* VERY SMALL SCREENS */
-@media (max-width: 360px) {
+/* RESPONSIVE - SMALL MOBILE */
+@media (max-width: 480px) {
+    .home-container {
+        padding: 30px 4%;
+    }
+
+    .home-left p {
+        text-align: justify;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .project {
+        padding: 15px;
+    }
+
+    .project-links {
+        gap: 6px;
+        flex-wrap: nowrap;
+    }
+
     .project-links a {
         padding: 8px 6px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        min-width: 0;
     }
-    
+
     .project-links a i {
-        margin-right: 4px;
+        margin-right: 3px;
+    }
+
+    .see-more-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .skill-category {
+        padding: 1.2rem;
+    }
+
+    .achievement-card {
+        padding: 1.2rem;
+    }
+
+    .achievement-card img {
+        max-width: 250px;
+    }
+
+    #data-contributions {
+        padding: 40px 10px;
+    }
+
+    #data-contributions h2 {
+        margin-bottom: 40px;
+    }
+
+    .achievements {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .achievement-item {
+        padding: 20px;
+    }
+
+    .navbar {
+        gap: 1px;
+    }
+
+    .navbar a {
+        padding: 3px 3px;
     }
 }
   </style>
