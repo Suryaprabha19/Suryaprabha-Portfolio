@@ -221,20 +221,23 @@ a:hover {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .project-links a {
-  flex: 1;
-  min-width: 100px;
+  flex: 1 1 calc(50% - 5px);
+  min-width: 120px;
+  max-width: 200px;
   background-color: rgba(0, 255, 255, 0);
   color: #fff;
-  padding: 6px 12px;
+  padding: 10px 12px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s;
   text-align: center;
   font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  white-space: nowrap;
 }
 
 .project-links a:hover {
@@ -681,13 +684,16 @@ a:hover {
     }
 
     .project-links {
-        flex-direction: column;
         gap: 8px;
+        justify-content: space-between;
     }
 
     .project-links a {
-        width: 100%;
-        min-width: unset;
+        flex: 1 1 calc(50% - 4px);
+        min-width: 110px;
+        max-width: none;
+        padding: 10px 8px;
+        font-size: 0.85rem;
     }
 
     .see-more-btn {
@@ -730,6 +736,18 @@ a:hover {
 
     .navbar a {
         padding: 3px 3px;
+    }
+}
+
+/* VERY SMALL SCREENS */
+@media (max-width: 360px) {
+    .project-links a {
+        padding: 8px 6px;
+        font-size: 0.8rem;
+    }
+    
+    .project-links a i {
+        margin-right: 4px;
     }
 }
   </style>
