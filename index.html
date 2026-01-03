@@ -4,18 +4,735 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suryaprabha PJ - Portfolio</title>
-  <link rel="stylesheet" href="s2.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rhrm1r6wly");
-  </script>
+  <style>
+:root {
+    --card-bg: #1e1e2f;
+    --green: #00e0ff;
+    --accent: #00ffcc;
+    --gradient-3: linear-gradient(135deg, #00e0ff, #00ff88);
+    --gradient-4: linear-gradient(135deg, #0ff, #00ccff);
+    --gradient-5: linear-gradient(135deg, #ff70aa, #00e0ff);
+    --text: #fff;
+    --text-muted: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0a23;
+    color: #ffffff;
+}
+
+header, section, footer {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #00e0ff;
+}
+
+a {
+    text-decoration: none;
+    color: #00aaff;
+    margin: 10px;
+}
+
+a:hover {
+    color: #00ffcc;
+}
+
+/* HOME SECTION */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 5%;
+    background-color: #0a0a23;
+    color: white;
+    text-align: center;
+}
+
+.home-left,
+.home-right {
+    width: 100%;
+    max-width: 100%;
+}
+
+.home-left h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 10px;
+}
+
+.home-left h2 {
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    margin-bottom: 10px;
+}
+
+.highlight {
+    font-size: large;
+    color: #00e0ff;
+}
+
+.home-left p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #0099ff;
+    color: #0f172a;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.btn-download:hover {
+    background: #00e0ff;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1a1a2e;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+    color: #00ff88;
+    border-color: #00ff88;
+    background-color: rgba(0, 255, 136, 0.1);
+}
+
+/* Profile Image */
+.home-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img {
+    width: clamp(200px, 50vw, 400px);
+    height: clamp(200px, 50vw, 400px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(107, 237, 246, 0.3);
+    box-shadow: 0 20px 60px rgba(250, 108, 139, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* PROJECTS SECTION */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.project {
+  background: #1e1e2f;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 15px #00aaff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00ffcc;
+}
+
+.project img,
+.project video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  display: block;
+}
+
+.project h3 {
+  color: #00ffff;
+  margin-bottom: 8px;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.project p {
+  color: #ccc;
+  font-size: clamp(0.85rem, 1.8vw, 0.9rem);
+}
+
+.project-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  flex: 1;
+  min-width: 100px;
+  background-color: rgba(0, 255, 255, 0);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  text-align: center;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+.project-links a:hover {
+  background: #00ffaa;
+  color: #000;
+}
+
+.project-links a i {
+  margin-right: 6px;
+}
+
+.see-more-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background-color: #00ffcc;
+    color: #000;
+}
+
+/* SKILLS SECTION */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--green);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-4);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+.skill-category:hover::before {
+  opacity: 0.05;
+}
+
+.skill-category > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  border-left-color: var(--accent);
+}
+
+.skill-category h3 {
+  color: var(--green);
+  margin-bottom: 1rem;
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
+}
+
+.skill-category:hover h3 {
+  color: var(--accent);
+}
+
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.skill-item {
+  padding: 0.5rem 1rem;
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: 20px;
+  font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+  color: var(--text);
+  transition: all 0.3s;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.skill-item:hover {
+  background: var(--gradient-3);
+  color: white;
+  transform: scale(1.05);
+  border-color: transparent;
+}
+
+/* ACHIEVEMENTS SECTION */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: 2rem;
+}
+
+.achievement-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--card-bg), var(--card-bg)), var(--gradient-5);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(250, 112, 154, 0.4);
+}
+
+.achievement-icon {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  background: var(--gradient-5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.achievement-card h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+.achievement-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: var(--gradient-5);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+}
+
+.achievement-card img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin: 1rem 0;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.achievement-card p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
+/* DATA CONTRIBUTIONS SECTION */
+#data-contributions {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#data-contributions h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  background: #00e0ff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 60px;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 40px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.achievement-item {
+  background: rgba(30, 30, 47, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 224, 255, 0.2);
+  box-shadow: 
+    0 8px 32px #0a0a23,
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 224, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.achievement-item:hover::before {
+  left: 100%;
+}
+
+.achievement-item:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(0, 224, 255, 0.4),
+    0 0 40px rgba(0, 255, 204, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 224, 255, 0.5);
+}
+
+.achievement-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #00e0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.achievement-item p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.kaggle-link {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #00bfff 0%, #0099ff 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 
+    0 4px 15px rgba(0, 191, 255, 0.4),
+    0 0 20px rgba(0, 191, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: clamp(0.8rem, 1.5vw, 0.85rem);
+  border: 2px solid transparent;
+}
+
+.kaggle-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.kaggle-link:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.kaggle-link:hover {
+  background: linear-gradient(135deg, #0099ff 0%, #0077cc 100%);
+  box-shadow: 
+    0 6px 25px rgba(0, 191, 255, 0.6),
+    0 0 40px rgba(0, 224, 255, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  border-color: rgba(0, 255, 204, 0.5);
+}
+
+/* SITE HEADER + NAVBAR */
+.site-header {
+    background-color: #0a0a23;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.navbar a {
+    color: #00aaff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s, background 0.3s;
+    font-weight: 500;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+.navbar a:hover {
+    color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.1);
+    border-radius: 5px;
+}
+
+/* RESPONSIVE - TABLET AND ABOVE (768px+) */
+@media (min-width: 768px) {
+    .home-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 60px 8%;
+        text-align: left;
+    }
+
+    .home-left {
+        flex: 1;
+        max-width: 600px;
+        order: 1;
+    }
+
+    .home-right {
+        flex: 1;
+        order: 2;
+        margin-bottom: 0;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+/* RESPONSIVE - MOBILE LANDSCAPE */
+@media (max-width: 767px) {
+    .home-container {
+        padding: 40px 5%;
+    }
+
+    .home-right {
+        order: 1;
+    }
+
+    .home-left {
+        order: 2;
+    }
+
+    .project-grid {
+        padding: 15px;
+    }
+
+    .skills-grid {
+        gap: 1.5rem;
+    }
+
+    .skill-category {
+        padding: 1.5rem;
+    }
+
+    .achievements-grid {
+        gap: 1.5rem;
+    }
+
+    .achievement-card {
+        padding: 1.5rem;
+    }
+
+    #data-contributions {
+        padding: 60px 15px;
+    }
+
+    .achievements {
+        gap: 25px;
+        padding: 0 15px;
+    }
+
+    .achievement-item {
+        padding: 25px;
+    }
+}
+
+/* RESPONSIVE - SMALL MOBILE */
+@media (max-width: 480px) {
+    .home-container {
+        padding: 30px 4%;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .project {
+        padding: 15px;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .project-links a {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .see-more-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .skill-category {
+        padding: 1.2rem;
+    }
+
+    .achievement-card {
+        padding: 1.2rem;
+    }
+
+    .achievement-card img {
+        max-width: 250px;
+    }
+
+    #data-contributions {
+        padding: 40px 10px;
+    }
+
+    #data-contributions h2 {
+        margin-bottom: 40px;
+    }
+
+    .achievements {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .achievement-item {
+        padding: 20px;
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .navbar a {
+        padding: 8px 12px;
+    }
+}
+  </style>
 </head>
 
 <body>
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#data-contributions">Contributions</a>
+    </nav>
+  </header>
+
   <!-- Home Section -->
   <section id="home" class="home-container">
     <div class="home-right">
@@ -30,7 +747,7 @@
         I thrive on solving complex problems through technology and have a hands-on experience in developing intelligent, user-centric systems. 
         I actively participate in hackathons, love transforming ideas into impactful applications, and thrive on continuous learning.
       </p>
-      <a href="Suryaprabha Resume.pdf" class="btn-download" download>Download CV</a>
+      <a href="#" class="btn-download" download>Download CV</a>
 
       <div class="social-icons">
         <a href="https://github.com/suryaprabha19" target="_blank"><i class="fab fa-github"></i></a>
@@ -42,114 +759,111 @@
   </section>
 
   <!-- Projects Section -->
-<section id="projects">
-  <h2>My Projects</h2>
-  <div class="project-grid">
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
 
-    <!-- AI Personal Stylist -->
-    <div class="project">
-      <img src="Images/ChromaShape.png" alt="AI Personal Stylist">
-      <h3>AI Personal Stylist</h3>
-      <p>Personalized fashion suggestions based on features like body shape, skin tone, undertone, hair color, eye color, and torso ratio.</p>
-      <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | Flask | HTML | CSS | JavaScript</p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/AI-Personal-Stylist" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="http://13.127.244.147/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+      <!-- AI Personal Stylist -->
+      <div class="project">
+        <img src="Images/ChromaShape.png" alt="AI Personal Stylist">
+        <h3>AI Personal Stylist</h3>
+        <p>Personalized fashion suggestions based on features like body shape, skin tone, undertone, hair color, eye color, and torso ratio.</p>
+        <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | Flask | HTML | CSS | JavaScript</p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/AI-Personal-Stylist" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="http://13.127.244.147/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Gaze-Controlled Assistive Technology -->
-    <div class="project">
-      <img src="Images/Project1.png" alt="Gaze-Controlled Assistive Technology">
-      <h3>Eye Gaze Tracking</h3>
-      <p>Eye-tracking system to aid mobility-impaired individuals in controlling wheelchairs and interfaces using gaze direction.</p>
-      <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | dlib | Blynk API | Arduino</p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/Automating-Wheelchair-Movement-Using-Eye-Gaze-Tracking/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="Videos/eyegaze.mp4" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+      <!-- Gaze-Controlled Assistive Technology -->
+      <div class="project">
+        <img src="Images/Project1.png" alt="Gaze-Controlled Assistive Technology">
+        <h3>Eye Gaze Tracking</h3>
+        <p>Eye-tracking system to aid mobility-impaired individuals in controlling wheelchairs and interfaces using gaze direction.</p>
+        <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | dlib | Blynk API | Arduino</p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/Automating-Wheelchair-Movement-Using-Eye-Gaze-Tracking/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Phishing Detection -->
-    <div class="project">
-      <img src="Images/Project4.png" alt="Phishing Detection">
-      <h3>Phishing Detection</h3>
-      <p>AI-based phishing detection system that classifies malicious URLs using NLP and Random Forest models.</p>
-      <p><strong>Tech Stack:</strong> Flask | HTML | CSS | JavaScript | scikit-learn | imblearn</p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/Phishing-Detection" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://huggingface.co/spaces/Suryaprabha19/Phishing-Detection" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+      <!-- Phishing Detection -->
+      <div class="project">
+        <img src="Images/Project4.png" alt="Phishing Detection">
+        <h3>Phishing Detection</h3>
+        <p>AI-based phishing detection system that classifies malicious URLs using NLP and Random Forest models.</p>
+        <p><strong>Tech Stack:</strong> Flask | HTML | CSS | JavaScript | scikit-learn | imblearn</p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/Phishing-Detection" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://huggingface.co/spaces/Suryaprabha19/Phishing-Detection" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Data Retrieval Chatbot -->
-    <div class="project">
-      <img src="Images/Project3.jpg" alt="Data Retrieval Chatbot">
-      <h3>Data Retrieval Chatbot</h3>
-      <p>AI Chatbot that retrieves data from a database and convert natural language into precise data queries, providing interactive responses.</p>
-      <p><strong>Tech Stack:</strong> Flask | API | SQLite | HTML | CSS | JavaScript</p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/Data-Retrieval-Chatbot" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="Videos/Chatbot.mp4" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+      <!-- Data Retrieval Chatbot -->
+      <div class="project">
+        <img src="Images/Project3.jpg" alt="Data Retrieval Chatbot">
+        <h3>Data Retrieval Chatbot</h3>
+        <p>AI Chatbot that retrieves data from a database and convert natural language into precise data queries, providing interactive responses.</p>
+        <p><strong>Tech Stack:</strong> Flask | API | SQLite | HTML | CSS | JavaScript</p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/Data-Retrieval-Chatbot" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Virtual Keyboard -->
-    <div class="project more-project" style="display: none;">
-      <img src="Images/Project2.png" alt="Virtual Keyboard">
-      <h3>Hand Tracking Virtual Keyboard</h3>
-      <p>Detects hand gestures for hands-free typing. The user interacts by pointing, the system detects the input text.</p>
-      <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | pynput </p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/VirtualKeyboard-using-Hand-Tracking" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="Videos/VirtualKeyboard.mp4" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+      <!-- Virtual Keyboard -->
+      <div class="project more-project" style="display: none;">
+        <img src="Images/Project2.png" alt="Virtual Keyboard">
+        <h3>Hand Tracking Virtual Keyboard</h3>
+        <p>Detects hand gestures for hands-free typing. The user interacts by pointing, the system detects the input text.</p>
+        <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | pynput </p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/VirtualKeyboard-using-Hand-Tracking" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Road Safety Dashboard -->
-    <div class="project more-project" style="display: none;">
-      <img src="Images/excel1.jpg" alt="Road Safety Dashboard">
-      <h3>Road Safety Dashboard</h3>
-      <p>Visualizes road accident and casualty statistics, providing detailed analysis across severity, time, and environmental factors.</p>
-      <p><strong>Tech Stack:</strong> Excel</p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/Road-Safety-Analysis-Dashboard" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="Images/excel1.jpg" target="_blank"><i class="fas fa-image"></i> Preview</a>
+      <!-- Road Safety Dashboard -->
+      <div class="project more-project" style="display: none;">
+        <img src="Images/excel1.jpg" alt="Road Safety Dashboard">
+        <h3>Road Safety Dashboard</h3>
+        <p>Visualizes road accident and casualty statistics, providing detailed analysis across severity, time, and environmental factors.</p>
+        <p><strong>Tech Stack:</strong> Excel</p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/Road-Safety-Analysis-Dashboard" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" target="_blank"><i class="fas fa-image"></i> Preview</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Text to Speech -->
-    <div class="project more-project" style="display: none;">
-      <img src="Images/TTS.png" alt="Text to Speech">
-      <h3>Text to Speech</h3>
-      <p>A user-friendly interface to input text and clicks the "Speak" button to have the computer vocalize the input.</p>
-      <p><strong>Tech Stack:</strong> Pyttsx3 | Tkinter</p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/Text-to-Speech" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="Videos/TTS.mp4" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+      <!-- Text to Speech -->
+      <div class="project more-project" style="display: none;">
+        <img src="Images/TTS.png" alt="Text to Speech">
+        <h3>Text to Speech</h3>
+        <p>A user-friendly interface to input text and clicks the "Speak" button to have the computer vocalize the input.</p>
+        <p><strong>Tech Stack:</strong> Pyttsx3 | Tkinter</p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/Text-to-Speech" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Student Mark Analysis Dashboard -->
-    <div class="project more-project" style="display: none;">
-      <img src="Images/excel3.jpg" alt="Student Mark Analysis Dashboard">
-      <h3>Student Mark Analysis Dashboard</h3>
-      <p>Student performance dashboard that shows the pass/fail rates for individual subjects and provides an overall pass/fail percentage.</p>
-      <p><strong>Tech Stack:</strong> Excel</p>
-      <div class="project-links">
-        <a href="https://github.com/Suryaprabha19/Semester-Mark-Analysis-Dashboard" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="Images/excel3.jpg" target="_blank"><i class="fas fa-image"></i> Preview</a>
+      <!-- Student Mark Analysis Dashboard -->
+      <div class="project more-project" style="display: none;">
+        <img src="Images/excel3.jpg" alt="Student Mark Analysis Dashboard">
+        <h3>Student Mark Analysis Dashboard</h3>
+        <p>Student performance dashboard that shows the pass/fail rates for individual subjects and provides an overall pass/fail percentage.</p>
+        <p><strong>Tech Stack:</strong> Excel</p>
+        <div class="project-links">
+          <a href="https://github.com/Suryaprabha19/Semester-Mark-Analysis-Dashboard" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" target="_blank"><i class="fas fa-image"></i> Preview</a>
+        </div>
       </div>
+
     </div>
-
-  </div>
-</section>
-
     
     <center>
       <button onclick="toggleProjects()" class="see-more-btn">See More</button>
     </center>
-
   </section>
 
   <!-- Skills Section -->
