@@ -89,6 +89,8 @@ a:hover {
     font-size: clamp(0.95rem, 2vw, 1.1rem);
     line-height: 1.6;
     margin-bottom: 30px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .btn-download {
@@ -553,7 +555,7 @@ a:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 3px;
 }
 
 .navbar a {
@@ -587,6 +589,10 @@ a:hover {
         order: 1;
     }
 
+    .home-left p {
+        text-align: justify;
+    }
+
     .home-right {
         flex: 1;
         order: 2;
@@ -610,6 +616,10 @@ a:hover {
 
     .home-left {
         order: 2;
+    }
+
+    .home-left p {
+        text-align: justify;
     }
 
     .project-grid {
@@ -650,6 +660,10 @@ a:hover {
 @media (max-width: 480px) {
     .home-container {
         padding: 30px 4%;
+    }
+
+    .home-left p {
+        text-align: justify;
     }
 
     .social-icons {
@@ -711,7 +725,7 @@ a:hover {
     }
 
     .navbar {
-        gap: 10px;
+        gap: 1px;
     }
 
     .navbar a {
@@ -750,17 +764,17 @@ a:hover {
       <a href="#" class="btn-download" download>Download CV</a>
 
       <div class="social-icons">
-        <a href="https://github.com/suryaprabha19" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/suryaprabhapj/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.kaggle.com/suryaprabha19" target="_blank"><i class="fab fa-kaggle"></i></a>
+        <a href="https://github.com/suryaprabha19" target="_blank"><i class="fab fa-github"></i></a>
         <a href="mailto:suryaprabhapj1965@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.kaggle.com/suryaprabha19" target="_blank"><i class="fab fa-kaggle"></i></a>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
-    <h2>My Projects</h2>
+    <h2>My Projects</h2><br>
     <div class="project-grid">
 
       <!-- AI Personal Stylist -->
@@ -783,7 +797,7 @@ a:hover {
         <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | dlib | Blynk API | Arduino</p>
         <div class="project-links">
           <a href="https://github.com/Suryaprabha19/Automating-Wheelchair-Movement-Using-Eye-Gaze-Tracking/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+          <a href="#" target="_blank"><i class="fas fa-video"></i>Demo</a>
         </div>
       </div>
 
@@ -819,7 +833,7 @@ a:hover {
         <p><strong>Tech Stack:</strong> OpenCV | MediaPipe | pynput </p>
         <div class="project-links">
           <a href="https://github.com/Suryaprabha19/VirtualKeyboard-using-Hand-Tracking" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+          <a href="#" target="_blank"><i class="fas fa-video"></i>Demo</a>
         </div>
       </div>
 
@@ -843,7 +857,7 @@ a:hover {
         <p><strong>Tech Stack:</strong> Pyttsx3 | Tkinter</p>
         <div class="project-links">
           <a href="https://github.com/Suryaprabha19/Text-to-Speech" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#" target="_blank"><i class="fas fa-video"></i> Video Demo</a>
+          <a href="#" target="_blank"><i class="fas fa-video"></i>Demo</a>
         </div>
       </div>
 
@@ -868,7 +882,7 @@ a:hover {
 
   <!-- Skills Section -->
   <section id="skills" class="section">
-    <h2 class="section-title">Technical Skills</h2>
+    <h2 class="section-title">Technical Skills</h2><br>
 
     <div class="skills-grid">
       <div class="skill-category">
@@ -930,12 +944,12 @@ a:hover {
         </div>
       </div>
 
-    </div>
+    </div><br>
   </section>
 
   <!-- Achievements Section -->
   <section id="achievements" class="section">
-    <h2 class="section-title">Achievements & Recognition</h2>
+    <h2 class="section-title">Achievements & Recognition</h2><br>
 
     <div class="achievements-grid">
       <div class="achievement-card">
