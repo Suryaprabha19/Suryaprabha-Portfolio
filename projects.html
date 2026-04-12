@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Journey</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #09090e;
+      --surface: #111118;
+      --surface2: #17171f;
+      --border: rgba(255, 255, 255, 0.06);
+      --border2: rgba(255, 255, 255, 0.12);
+      --text: #ededea;
+      --muted: #6b6a72;
+      --muted2: #9b9aa2;
+      --lime: #c8ff57;
+      --cyan: #57d4ff;
+      --orange: #ff7c57;
+      --purple: #b857ff;
+      --pink: #ff57b8;
+      --teal: #57ffce;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.1rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 9, 14, 0.88);
+      backdrop-filter: blur(24px);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span {
+      color: var(--lime);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 9rem 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200, 255, 87, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 255, 87, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 90% 70% at 40% 0%, black 20%, transparent 100%);
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-orb-1 {
+      width: 500px;
+      height: 500px;
+      top: -150px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(200, 255, 87, 0.06) 0%, transparent 70%);
+    }
+
+    .hero-orb-2 {
+      width: 400px;
+      height: 400px;
+      top: 50px;
+      right: 5%;
+      background: radial-gradient(circle, rgba(87, 212, 255, 0.05) 0%, transparent 70%);
+    }
+
+    .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(200, 255, 87, 0.07);
+      border: 1px solid rgba(200, 255, 87, 0.18);
+      color: var(--lime);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.38rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 2.2rem;
+      width: fit-content;
+    }
+
+    .live-dot::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime);
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.25;
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+      font-weight: 800;
+      line-height: 0.93;
+      letter-spacing: -0.045em;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .hero h1 .word {
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .hero h1 .word span {
+      display: inline-block;
+      animation: wordUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(110%);
+    }
+
+    .hero h1 .w1 span {
+      animation-delay: 0.05s;
+    }
+
+    .hero h1 .w2 span {
+      animation-delay: 0.15s;
+    }
+
+    .hero h1 .w3 span {
+      animation-delay: 0.25s;
+    }
+
+    .hero h1 .w4 span {
+      animation-delay: 0.35s;
+    }
+
+    @keyframes wordUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 .accent {
+      color: var(--lime);
+    }
+
+    .hero-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3rem;
+      animation: fadeUp 0.9s 0.6s both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-sub {
+      max-width: 460px;
+      color: var(--muted2);
+      font-size: 0.97rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.2rem;
+    }
+
+    .stat-n {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .stat-l {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* SECTION HEADERS */
+    .section-head {
+      padding: 5rem 3rem 2.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-eyebrow {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-h {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .section-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 5.5rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.035);
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* HACKATHON LIST */
+    .hack-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 0 2.5rem;
+      align-items: start;
+      padding: 2.8rem 3rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hack-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .hack-item.hl::before {
+      background: var(--lime);
+    }
+
+    .hack-item.hc::before {
+      background: var(--cyan);
+    }
+
+    .hack-item.ho::before {
+      background: var(--orange);
+    }
+
+    .hack-item.hp::before {
+      background: var(--purple);
+    }
+
+    .hack-item.hk::before {
+      background: var(--pink);
+    }
+
+    .hack-item:hover {
+      background: var(--surface);
+    }
+
+    .hack-item:hover::before {
+      opacity: 1;
+    }
+
+    .hack-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      padding-top: 0.2rem;
+    }
+
+    .hack-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .hack-event {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hack-desc {
+      font-size: 0.87rem;
+      color: var(--muted2);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 1.2rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.66rem;
+      font-weight: 500;
+      padding: 0.22rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted2);
+      border: 1px solid var(--border);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .tag.lime {
+      color: var(--lime);
+      border-color: rgba(200, 255, 87, 0.2);
+      background: rgba(200, 255, 87, 0.05);
+    }
+
+    .tag.cyan {
+      color: var(--cyan);
+      border-color: rgba(87, 212, 255, 0.2);
+      background: rgba(87, 212, 255, 0.05);
+    }
+
+    .tag.orange {
+      color: var(--orange);
+      border-color: rgba(255, 124, 87, 0.2);
+      background: rgba(255, 124, 87, 0.05);
+    }
+
+    .tag.purple {
+      color: var(--purple);
+      border-color: rgba(184, 87, 255, 0.2);
+      background: rgba(184, 87, 255, 0.05);
+    }
+
+    .tag.pink {
+      color: var(--pink);
+      border-color: rgba(255, 87, 184, 0.2);
+      background: rgba(255, 87, 184, 0.05);
+    }
+
+    .hack-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+      padding-top: 0.2rem;
+      min-width: 160px;
+    }
+
+    .domain-badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+
+    .db-lime {
+      color: var(--lime);
+      border-color: rgba(200, 255, 87, 0.3);
+      background: rgba(200, 255, 87, 0.07);
+    }
+
+    .db-cyan {
+      color: var(--cyan);
+      border-color: rgba(87, 212, 255, 0.3);
+      background: rgba(87, 212, 255, 0.07);
+    }
+
+    .db-orange {
+      color: var(--orange);
+      border-color: rgba(255, 124, 87, 0.3);
+      background: rgba(255, 124, 87, 0.07);
+    }
+
+    .db-purple {
+      color: var(--purple);
+      border-color: rgba(184, 87, 255, 0.3);
+      background: rgba(184, 87, 255, 0.07);
+    }
+
+    .db-pink {
+      color: var(--pink);
+      border-color: rgba(255, 87, 184, 0.3);
+      background: rgba(255, 87, 184, 0.07);
+    }
+
+    .db-teal {
+      color: var(--teal);
+      border-color: rgba(87, 255, 206, 0.3);
+      background: rgba(87, 255, 206, 0.07);
+    }
+
+    /* PERSONAL PROJECT GRID */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-left: 1px solid var(--border);
+    }
+
+    /* Fix: hack-item cards inside proj-grid must behave like proj-card */
+    .proj-grid .hack-item {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-left: none;
+      padding: 2rem 2rem 2.5rem;
+      gap: 0;
+    }
+
+    .proj-grid .hack-item .hack-num {
+      margin-bottom: 0.9rem;
+    }
+
+    .proj-grid .hack-item .hack-side {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      min-width: unset;
+      padding-top: 1rem;
+    }
+
+    .proj-card {
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2rem 2.5rem;
+      position: relative;
+      transition: background 0.25s;
+    }
+
+    /* Currently building card */
+    .proj-card.building {
+      border: 1px solid rgba(200, 255, 87, 0.18);
+      background: rgba(200, 255, 87, 0.025);
+      position: relative;
+    }
+
+    .proj-card.building::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--lime);
+    }
+
+    .building-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--lime);
+      background: rgba(200, 255, 87, 0.07);
+      border: 1px solid rgba(200, 255, 87, 0.2);
+      padding: 0.22rem 0.6rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .building-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime);
+      animation: blink 2s infinite;
+    }
+
+    .proj-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.22rem 0.65rem;
+      margin-top: 0.9rem;
+      transition: color 0.2s, border-color 0.2s;
+      width: fit-content;
+    }
+
+    .proj-github:hover {
+      color: var(--text);
+      border-color: var(--border2);
+    }
+
+    .proj-github svg {
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    .proj-github:hover svg {
+      opacity: 1;
+    }
+
+    /* GitHub link inside hack-item cards in proj-grid */
+    .proj-grid .hack-item .proj-github {
+      margin-top: 0.9rem;
+    }
+
+    .proj-card:hover {
+      background: var(--surface);
+    }
+
+    .proj-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+
+    .proj-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .icon-ml {
+      background: rgba(200, 255, 87, 0.1);
+    }
+
+    .icon-cv {
+      background: rgba(87, 212, 255, 0.1);
+    }
+
+    .icon-web {
+      background: rgba(184, 87, 255, 0.1);
+    }
+
+    .icon-data {
+      background: rgba(255, 124, 87, 0.1);
+    }
+
+    .icon-nlp {
+      background: rgba(255, 87, 184, 0.1);
+    }
+
+    .proj-idx {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .proj-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .proj-type {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .proj-desc {
+      font-size: 0.82rem;
+      color: var(--muted2);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    /* EXCEL DASHBOARDS */
+    .excel-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .excel-card {
+      border-right: 1px solid var(--border);
+      padding: 1.8rem 1.8rem 2rem;
+      transition: background 0.25s;
+    }
+
+    .excel-card:hover {
+      background: var(--surface);
+    }
+
+    .excel-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .excel-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .excel-note {
+      font-size: 0.78rem;
+      color: var(--muted2);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .excel-tag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4caf7d;
+      background: rgba(76, 175, 125, 0.1);
+      border: 1px solid rgba(76, 175, 125, 0.25);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* STACK */
+    .stack-section {
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stack-quote {
+      border-left: 2px solid var(--lime);
+      padding-left: 1.5rem;
+      margin: 0;
+    }
+
+    .stack-quote p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted2);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .stack-quote cite {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .stack-group-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.74rem;
+      padding: 0.28rem 0.7rem;
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      color: rgba(237, 237, 234, 0.65);
+      font-weight: 400;
+    }
+
+    footer {
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .footer-logo span {
+      color: var(--lime);
+    }
+
+    .footer-note {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 4rem;
+      }
+
+      .hero-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .stat {
+        align-items: flex-start;
+      }
+
+      .section-head {
+        padding: 3rem 1.5rem 2rem;
+      }
+
+      .hack-item {
+        grid-template-columns: 50px 1fr;
+        padding: 2rem 1.5rem;
+        gap: 0 1.2rem;
+      }
+
+      .hack-side {
+        display: none;
+      }
+
+      .proj-grid {
+        grid-template-columns: 1fr 1fr;
+        border-left: none;
+      }
+
+      .excel-row {
+        grid-template-columns: 1fr 1fr;
+        border-left: none;
+      }
+
+      .stack-section {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem;
+        gap: 2.5rem;
+      }
+
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .proj-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .excel-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Suryaprabha PJ<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#hackathon">Hackathons</a></li>
+      <li><a href="#personal">Projects</a></li>
+      <li><a href="#stack">Stack</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+
+    <div class="live-dot">Building · Learning · Shipping</div>
+
+    <h1>
+      <span class="word w1"><span>Build.</span></span>&nbsp;
+      <span class="word w2"><span>Break.</span></span><br>
+      <span class="word w3"><span></span></span>
+      <span class="word w4"><span class="accent">Repeat.</span></span>
+    </h1>
+
+    <div class="hero-row">
+      <p class="hero-sub">A complete journey through ML, computer vision, NLP, IoT, and full-stack AI - from hackathon
+        sprints to deep personal projects. Every line of code a step forward.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">26+</span><span class="stat-l">Projects</span></div>
+        <div class="stat"><span class="stat-n">7</span><span class="stat-l">Hackathons</span></div>
+        <div class="stat"><span class="stat-n">12+</span><span class="stat-l">Tech Stacks</span></div>
+        <div class="stat"><span class="stat-n">∞</span><span class="stat-l">Curiosity</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HACKATHON PROJECTS -->
+  <section id="hackathon">
+    <div class="section-head">
+      <div>
+        <p class="section-eyebrow">Under pressure · Under the clock</p>
+        <h2 class="section-h">Hackathon Projects</h2>
+      </div>
+      <span class="section-num">07</span>
+    </div>
+
+
+    <div class="hack-item hc">
+      <div class="hack-num">01</div>
+      <div class="hack-body">
+        <h3 class="hack-name">Repuatix - Citation Sentiment Intelligence</h3>
+        <p class="hack-event">HackXelerate · AIML Track</p>
+        <p class="hack-desc">6-agent LangGraph pipeline for any paper by DOI or arXiv ID. Classifies each citing
+          sentence by sentiment, intent, certainty, and domain relevance using LLaMA3 via Ollama. 8-thread parallel
+          fetch, 4-thread LLM inference, batch sentence-transformer embeddings. Outputs structured JSON + styled PDF
+          report. Accepts arXiv IDs, bare DOIs, ACL DOIs, and plain titles.</p>
+        <div class="tag-row">
+          <span class="tag cyan">LangGraph</span>
+          <span class="tag">LLaMA3 · Ollama</span><span class="tag">sentence-transformers</span>
+          <span class="tag">Semantic Scholar API</span><span class="tag">spaCy</span><span class="tag">ReportLab</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Repuatix" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <div class="hack-side"><span class="domain-badge db-cyan">Multi-Agent · NLP</span></div>
+    </div>
+
+    <div class="hack-item hl">
+      <div class="hack-num">02</div>
+      <div class="hack-body">
+        <h3 class="hack-name">Lexara - Document Analysis API</h3>
+        <p class="hack-event">GUVI Hackathon 2026 · Track 2</p>
+        <p class="hack-desc">Intelligent document processing REST API supporting PDF, DOCX, and images. Extracts named
+          entities (people, dates, orgs, amounts), generates summaries, and classifies sentiment via Groq LLaMA 3.3-70B.
+          Tesseract OCR for image inputs. Streamlit UI with Analyser + Endpoint Tester. JWT auth. Deployable on Render
+          free tier.</p>
+        <div class="tag-row">
+          <span class="tag lime">Groq · LLaMA 3.3-70B</span>
+          <span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">pdfplumber</span>
+          <span class="tag">python-docx</span><span class="tag">Tesseract OCR</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Lexara" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <div class="hack-side"><span class="domain-badge db-lime">NLP · Document AI</span></div>
+    </div>
+
+    <div class="hack-item hp">
+      <div class="hack-num">03</div>
+      <div class="hack-body">
+        <h3 class="hack-name">Neuron AI - Rare Disease Detection</h3>
+        <p class="hack-event">HackAstra 2026 · Agentic AI + MCP · No static database</p>
+        <p class="hack-desc">No predefined disease list. Multi-LLM agentic system with 4 live MCP servers querying
+          PubMed, OMIM, and ClinVar in real time. Combines 5-step patient intake, AI vision (llava:7b) for
+          skin/rash/tremor analysis, GPS-based weather + AQI via Open-Meteo, and a context-aware chatbot. Supports
+          Ollama, Groq, Gemini, and Anthropic.</p>
+        <div class="tag-row">
+          <span class="tag purple">Anthropic MCP SDK</span>
+          <span class="tag">Ollama · llama3.1:8b</span><span class="tag">FastAPI + SSE</span>
+          <span class="tag">React 18 + TypeScript</span><span class="tag">Open-Meteo</span>
+          <span class="tag">PubMed · OMIM · ClinVar</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Neuron-AI" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <div class="hack-side"><span class="domain-badge db-purple">Agentic AI · Healthcare</span></div>
+    </div>
+
+    <div class="hack-item ho">
+      <div class="hack-num">04</div>
+      <div class="hack-body">
+        <h3 class="hack-name">E-Consultation ABSA Dashboard</h3>
+        <p class="hack-event">Smart India Hackathon 2025</p>
+        <p class="hack-desc">Comprehensive ABSA and intent analysis for e-consultation feedback data. Interactive pie
+          charts for sentiment distribution, TF-IDF keyword extraction per sentiment/intent class, aspect-level word
+          clouds, and a real-time "Analyse New Text" demo for live prediction of new inputs.</p>
+        <div class="tag-row">
+          <span class="tag orange">Streamlit</span>
+          <span class="tag">scikit-learn · TF-IDF</span><span class="tag">Plotly</span>
+          <span class="tag">Seaborn</span><span class="tag">WordCloud</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Aspect-Based-Sentiment-Analysis" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <div class="hack-side"><span class="domain-badge db-orange">NLP · Dashboard</span></div>
+    </div>
+
+
+    <div class="hack-item hc">
+      <div class="hack-num">05</div>
+      <div class="hack-body">
+        <h3 class="hack-name">Green Eye - AI Waste Intelligence</h3>
+        <p class="hack-event">Hack Tamizhagam</p>
+        <p class="hack-desc">Real-time webcam waste detection using a custom-trained CNN across 12 categories (battery,
+          biological, glass, cardboard, clothes, metal, paper, plastic, shoes, trash). Dark dashboard UI with session
+          stats, detection log, and confidence bar. MJPEG streaming via Flask.</p>
+        <div class="tag-row">
+          <span class="tag cyan">TensorFlow / Keras CNN</span>
+          <span class="tag">OpenCV</span><span class="tag">Flask MJPEG</span><span class="tag">224×224 Input</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/waste-sorting-web-app" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <div class="hack-side"><span class="domain-badge db-cyan">CV · Sustainability</span></div>
+    </div>
+
+
+    <div class="hack-list">
+      <div class="hack-item hl">
+        <div class="hack-num">06</div>
+        <div class="hack-body">
+          <h3 class="hack-name">Wyvara - Nyx AI Retail Platform</h3>
+          <p class="hack-event">Woodpecker's Hackathon 2026 · Team Suryaprabha PJ</p>
+          <p class="hack-desc">Full-stack business intelligence platform for an Indian clothing brand - 1,00,000 sales
+            records across 40 pan-India branches. Nyx converts plain English to SQL via Groq LLaMA 3.3 70B and responds
+            naturally. Includes 8-chart analytics dashboard, ML sales predictor, branch & salesperson admin system,
+            voice input, and a Folium pan-India map with 60s auto-refresh.</p>
+          <div class="tag-row">
+            <span class="tag lime">Groq · LLaMA 3.3 70B</span>
+            <span class="tag">Flask</span><span class="tag">SQLite WAL</span><span class="tag">Chart.js</span>
+            <span class="tag">scikit-learn</span><span class="tag">Folium</span><span class="tag">Web Speech API</span>
+          </div>
+          <a href="https://github.com/Suryaprabha19/Wyvara" target="_blank" class="proj-github">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+        <div class="hack-side"><span class="domain-badge db-lime">AI · Retail Analytics</span></div>
+      </div>
+
+
+      <div class="hack-item ho">
+        <div class="hack-num">07</div>
+        <div class="hack-body">
+          <h3 class="hack-name">Drowsiness & Yawn Detection</h3>
+          <p class="hack-event">Codher'24</p>
+          <p class="hack-desc">Fatigue monitoring using Dlib's 68-point face landmark predictor. Calculates Eye Aspect
+            Ratio (EAR) and Mouth Aspect Ratio (MAR) per frame, triggering winsound alarm on threshold breach. Live
+            EAR/MAR overlay for self-calibration. Configurable thresholds (earThresh, earFrames, mouthThresh,
+            mouthFrames) for individual facial dimensions.</p>
+          <div class="tag-row">
+            <span class="tag orange">Dlib · 68 Landmarks</span>
+            <span class="tag">EAR · MAR</span><span class="tag">OpenCV</span>
+            <span class="tag">imutils</span><span class="tag">scipy</span>
+          </div>
+          <a href="https://github.com/Suryaprabha19/Drowsiness-Detection" target="_blank" class="proj-github">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+        <div class="hack-side"><span class="domain-badge db-orange">CV · Driver Safety</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL PROJECTS -->
+  <section id="personal">
+    <div class="section-head">
+      <div>
+        <p class="section-eyebrow">Built for learning · Built for real use</p>
+        <h2 class="section-h">Personal Projects</h2>
+      </div>
+      <span class="section-num">15</span>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-cv">👁️</div>
+          <span class="proj-idx">P-01</span>
+        </div>
+        <h3 class="proj-name">Eye Gaze Wheelchair Control</h3>
+        <p class="proj-type">Computer Vision · IoT · Assistive Tech</p>
+        <p class="proj-desc">Hands-free wheelchair control via real-time iris tracking. MediaPipe FaceMesh (478
+          landmarks with iris refinement) extracts gaze vectors from both eyes, passed through a 4-stage smoothing
+          pipeline: Kalman filter → 7-frame moving average → exponential smoothing → outlier rejection. 1.5s dwell time
+          triggers Forward / Left / Right / Stop via Blynk HTTP API to ESP32 motor controller. Live dashboard: FPS,
+          latency, gaze stability, head pose (pitch/yaw/roll), lighting quality, and camera distance. Supports both IP
+          cameras and local webcams.</p>
+        <div class="tag-row">
+          <span class="tag cyan">MediaPipe FaceMesh · 478 landmarks</span>
+          <span class="tag">Kalman Filter</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Blynk IoT</span>
+          <span class="tag">ESP32</span>
+          <span class="tag lime">4-Stage Gaze Smoothing</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Automating-Wheelchair-Movement-Using-Eye-Gaze-Tracking"
+          target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-ml">⚡</div>
+          <span class="proj-idx">P-02</span>
+        </div>
+        <h3 class="proj-name">Smart EV Charging Scheduler</h3>
+        <p class="proj-type">Deep Learning · Time-Series · Smart Grid · XAI</p>
+        <p class="proj-desc">End-to-end smart grid AI pipeline for optimizing EV charging without overloading the power
+          grid. Trains and compares 8 models - Standard, Bidirectional, Encoder-Decoder, Attention-based, and
+          Seq2Seq+Attention LSTMs plus Linear Regression, Random Forest, and ARIMA - on 15-minute interval smart grid
+          data (15 features). A rule-based scheduler assigns charging slots by minimising Grid Stress Index and
+          prioritising renewable-heavy windows. SHAP explains deep learning predictions; LIME explains traditional ML
+          outputs.</p>
+        <div class="tag-row">
+          <span class="tag lime">LSTM · 5 Architectures</span>
+          <span class="tag">TensorFlow · Keras</span>
+          <span class="tag">ARIMA</span>
+          <span class="tag orange">SHAP · LIME · XAI</span>
+          <span class="tag">Grid Stress Index</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Smart-EV-Charging-Scheduler" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-ml">📊</div>
+          <span class="proj-idx">P-03</span>
+        </div>
+        <h3 class="proj-name">Student Score Prediction</h3>
+        <p class="proj-type">ML Pipeline · Kaggle PS S6E1</p>
+        <p class="proj-desc">Production-ready ML pipeline with sanity checks, leakage detection (high correlation
+          warnings), 5-fold CV, and 4-model comparison - Ridge, Lasso, LightGBM, XGBoost. Separate preprocessing
+          pipelines for linear vs tree-based models. Lasso pruning report, feature importance from LightGBM, and
+          synthetic artifact detection.</p>
+        <div class="tag-row">
+          <span class="tag">LightGBM</span><span class="tag">XGBoost</span>
+          <span class="tag">Ridge · Lasso</span><span class="tag lime">5-Fold CV</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Kaggle-PS-S6E1_Predicting-Students-Test-Score" target="_blank"
+          class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="hack-item hp">
+        <div class="hack-num">P-04</div>
+        <div class="hack-body">
+          <h3 class="hack-name">ChromaShape - Personal AI Stylist</h3>
+          <p class="hack-event">AI Fashion Recommender</p>
+          <p class="hack-desc">Auto-detects skin tone and undertone from wrist photo (K-Means clustering), eye color and
+            hair color via MediaPipe FaceMesh, and torso-to-leg proportion via pose estimation. Matches all 6 features
+            against a recommendations CSV to generate personalised outfit suggestions for male and female body shapes (6
+            female, 6 male classifications).</p>
+          <div class="tag-row">
+            <span class="tag purple">MediaPipe Pose + FaceMesh</span>
+            <span class="tag">K-Means Clustering</span><span class="tag">OpenCV</span><span class="tag">Flask</span>
+          </div>
+          <a href="https://github.com/Suryaprabha19/ChromaShape" target="_blank" class="proj-github">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+        <div class="hack-side"><span class="domain-badge db-purple">CV · Fashion AI</span></div>
+      </div>
+
+      <div class="hack-item hp">
+        <div class="hack-num">P-05</div>
+        <div class="hack-body">
+          <h3 class="hack-name">SpectroPlast</h3>
+          <p class="hack-event">IEEE SPF 2025 · Research Project</p>
+          <p class="hack-desc">U-Net architecture for microplastic detection in blood samples from 100-band
+            hyperspectral Raman cube data (128×128×100). Classifies five plastic types: PET, PS, PE, PP, PMMA.
+            Interactive Streamlit app with click-to-analyse Raman spectra, physical property lookup (density, color,
+            source), and synthetic dataset generator for training.</p>
+          <div class="tag-row">
+            <span class="tag purple">PyTorch · U-Net</span>
+            <span class="tag">Streamlit</span><span class="tag">NumPy</span>
+            <span class="tag">Hyperspectral 100-band</span><span class="tag">Adam Optimizer</span>
+          </div>
+          <a href="https://github.com/Suryaprabha19/SpectroPlast" target="_blank" class="proj-github">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+        <div class="hack-side"><span class="domain-badge db-lime">Deep Learning · Science</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-ml">🧠</div>
+          <span class="proj-idx">P-06</span>
+        </div>
+        <h3 class="proj-name">ADHD Detection from EEG</h3>
+        <p class="proj-type">Deep Learning · Neuroscience</p>
+        <p class="proj-desc">EEG signal classification (ADHD vs Control) using two models: a 1D CNN (Conv1D 64 filters →
+          MaxPool → Dropout 0.5 → Dense 64 → softmax) and XGBoost. StandardScaler normalisation, 80/20 stratified split.
+          Visualises EEG samples, training curves, and side-by-side confusion matrix heatmaps for both models.</p>
+        <div class="tag-row">
+          <span class="tag lime">1D CNN · TensorFlow</span>
+          <span class="tag">XGBoost</span><span class="tag">scikit-learn</span><span class="tag">EEG Signals</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/ADHD" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-data">⚖️</div>
+          <span class="proj-idx">P-07</span>
+        </div>
+        <h3 class="proj-name">Resampling Techniques Study</h3>
+        <p class="proj-type">ML Research · Class Imbalance</p>
+        <p class="proj-desc">Comparative study of 4 resampling strategies on the same heart disease dataset using Random
+          Forest. Compares SMOTE-Tomek, SMOTE+ENN, SMOTE+Sample Filtering, and SMOTE+K-Means Undersampling. Best result:
+          SMOTE+ENN achieves F1=0.405 on the minority class - a 138% improvement over the baseline 0.17.</p>
+        <div class="tag-row">
+          <span class="tag orange">SMOTE + ENN · F1=0.405</span>
+          <span class="tag">Random Forest</span><span class="tag">imbalanced-learn</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/resampling-techniques" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-ml">🔐</div>
+          <span class="proj-idx">P-08</span>
+        </div>
+        <h3 class="proj-name">LinkScry - Phishing Detector</h3>
+        <p class="proj-type">ML · Flask</p>
+        <p class="proj-desc">Extracts 22 hand-crafted structural features from any URL - IP address presence, URL
+          shorteners, suspicious keywords (login, bank, paypal), TLD length, character counts (dots, @, %, ?) - and
+          classifies Phishing vs Legitimate in real time using a pre-trained Random Forest. Dockerised.
+          Network-accessible on 0.0.0.0.</p>
+        <div class="tag-row">
+          <span class="tag lime">Random Forest</span>
+          <span class="tag">Flask</span><span class="tag">joblib</span>
+          <span class="tag">Docker</span><span class="tag">22 URL Features</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/LinkScry" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-ml">🫀</div>
+          <span class="proj-idx">P-09</span>
+        </div>
+        <h3 class="proj-name">Heart Disease Prediction</h3>
+        <p class="proj-type">ML · Healthcare · CatBoost</p>
+        <p class="proj-desc">Binary classifier on CDC BRFSS 2015 (~253K records, 21 health indicators, 91/9 imbalance).
+          SMOTE on training set only. CatBoost with GridSearchCV tuning across iterations, learning rate, depth, and
+          l2_leaf_reg. Evaluation: Accuracy, Precision, Recall, F1, ROC-AUC, and confusion matrix. BMI outlier clipping,
+          feature correlation heatmap.</p>
+        <div class="tag-row">
+          <span class="tag lime">CatBoost</span>
+          <span class="tag">SMOTE</span><span class="tag">GridSearchCV</span><span class="tag">ROC-AUC</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Heart-Disease" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-ml">🚗</div>
+          <span class="proj-idx">P-10</span>
+        </div>
+        <h3 class="proj-name">Car Purchase Prediction</h3>
+        <p class="proj-type">ML · Regression</p>
+        <p class="proj-desc">Predicts car purchase amounts from customer demographics (age, salary, net worth, credit
+          card debt) using Linear Regression. IQR-based outlier removal, StandardScaler normalisation, correlation
+          heatmap EDA. Achieves R² ≈ 0.9999. Key insight: net worth is the strongest predictor of purchase amount.</p>
+        <div class="tag-row">
+          <span class="tag">Linear Regression</span>
+          <span class="tag">StandardScaler</span><span class="tag">IQR Outlier Removal</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Sales_Prediction" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-cv">🖐️</div>
+          <span class="proj-idx">P-11</span>
+        </div>
+        <h3 class="proj-name">Hand Virtual Keyboard</h3>
+        <p class="proj-type">Computer Vision · Gesture UI</p>
+        <p class="proj-desc">Full QWERTY virtual keyboard controlled by hand gestures via webcam. Index finger hover
+          highlights keys (pink). Pinch gesture (thumb + index &lt;20px) triggers a real OS keypress via pynput with
+          0.2s repeat-prevention delay. Supports SPACE, ENTER, BACKSPACE. Green flash on press. 1080×520 capture
+          resolution.</p>
+        <div class="tag-row">
+          <span class="tag cyan">MediaPipe Hand Tracking</span>
+          <span class="tag">cvzone</span><span class="tag">pynput</span><span class="tag">OpenCV</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/VirtualKeyboard-using-Hand-Tracking" target="_blank"
+          class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-nlp">🎙️</div>
+          <span class="proj-idx">P-12</span>
+        </div>
+        <h3 class="proj-name">Voice Wikipedia Search</h3>
+        <p class="proj-type">Speech Recognition · NLP</p>
+        <p class="proj-desc">Voice assistant pipeline: greets with pyttsx3 TTS → listens via microphone using Google
+          Speech Recognition API → searches Wikipedia → reads the summary aloud offline. Handles disambiguation errors
+          and prints result to console simultaneously. Works with a simple "Say Something" prompt.</p>
+        <div class="tag-row">
+          <span class="tag pink">SpeechRecognition</span>
+          <span class="tag">pyttsx3</span><span class="tag">wikipedia</span><span class="tag">pyaudio</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Speech-Recognition" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-icon icon-nlp">🔊</div>
+          <span class="proj-idx">P-13</span>
+        </div>
+        <h3 class="proj-name">Text-to-Speech Desktop App</h3>
+        <p class="proj-type">Desktop GUI · Python</p>
+        <p class="proj-desc">Minimal Tkinter desktop app for offline text-to-speech. Type any text, click Speak -
+          pyttsx3 uses the system's native TTS engine (SAPI5/Windows, NSSpeechSynthesizer/macOS, eSpeak/Linux). No audio
+          files generated; real-time synthesis. Clean fixed-size window with a single Entry + Button layout.</p>
+        <div class="tag-row">
+          <span class="tag">pyttsx3</span><span class="tag">Tkinter</span>
+          <span class="tag pink">Offline TTS · SAPI5</span>
+        </div>
+        <a href="https://github.com/Suryaprabha19/Text-to-Speech" target="_blank" class="proj-github">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <!-- CURRENTLY BUILDING: EcoVision 12 -->
+      <div class="proj-card building">
+        <div class="building-badge">Currently Building</div>
+        <div class="proj-card-top">
+          <div class="proj-icon icon-cv">♻️</div>
+          <span class="proj-idx">P-14</span>
+        </div>
+        <h3 class="proj-name">EcoVision 12</h3>
+        <p class="proj-type">IoT · Computer Vision · TinyML · Sustainability</p>
+        <p class="proj-desc">AI-enabled smart waste segregation system with a 3-bin classifier (Compost · Recycle ·
+          Reject). Moisture sensor handles wet waste instantly; ESP32-CAM runs a TinyML CNN (trained on 20,000 images
+          via Edge Impulse) for dry waste visual recognition. Arduino Uno fuses all sensor signals with priority logic
+          and calculates real-time carbon footprint using E = EF × W. IoT Telegram alerts on bin-full events. 80% field
+          accuracy in initial testing. FAER Scholar Award 2025–26.</p>
+        <div class="tag-row">
+          <span class="tag lime">ESP32-CAM · TinyML</span>
+          <span class="tag">Edge Impulse · CNN</span>
+          <span class="tag">Arduino Uno</span>
+          <span class="tag cyan">Moisture · Capacitive · Load Cell</span>
+          <span class="tag">IoT · Telegram API</span>
+          <span class="tag">Carbon Footprint Analytics</span>
+        </div>
+      </div>
+
+      <!-- CURRENTLY BUILDING: NutriBot -->
+      <div class="proj-card building">
+        <div class="building-badge">Currently Building</div>
+        <div class="proj-card-top">
+          <div class="proj-icon icon-web">🥗</div>
+          <span class="proj-idx">P-15</span>
+        </div>
+        <h3 class="proj-name">NutriBot</h3>
+        <p class="proj-type">Full-Stack · Food Tech · AI</p>
+        <p class="proj-desc">AI food ordering platform on a 150,000-item nutrition dataset. 5-step health onboarding
+          captures allergies, conditions, and goals. AI Health Check detects allergen conflicts, calorie overload, and
+          condition-specific flags. Smart alternatives engine recommends safer swaps. UPI/Card/Wallet/COD payment with
+          animated 4-step order tracking. Runs as standalone HTML or full React + Node + MongoDB stack.</p>
+        <div class="tag-row">
+          <span class="tag">React 18</span><span class="tag">Node.js + Express</span>
+          <span class="tag">MongoDB</span><span class="tag">JWT</span>
+          <span class="tag purple">AI Health Check Engine</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- EXCEL DASHBOARDS -->
+    <div
+      style="padding: 2.5rem 3rem 1.2rem; border-bottom: 1px solid var(--border); border-top: 1px solid var(--border); margin-top: 0; display: flex; align-items: flex-end; justify-content: space-between;">
+      <div>
+        <p
+          style="font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 0.4rem;">
+          Data Visualisation · Microsoft Excel</p>
+        <p
+          style="font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text);">
+          Excel Dashboards</p>
+      </div>
+      <span
+        style="font-family: 'Syne', sans-serif; font-size: 5.5rem; font-weight: 800; color: rgba(255,255,255,0.035); line-height: 1; user-select: none;">04</span>
+    </div>
+    <div class="excel-row">
+      <div class="excel-card">
+        <p class="excel-label">Dashboard 01</p>
+        <h4 class="excel-name">Business Analytics Dashboard</h4>
+        <p class="excel-note">KPIs, trend analysis, and business performance metrics with interactive slicers and
+          dynamic charts.</p>
+        <span class="excel-tag">Excel · Power Query</span>
+        <a href="https://github.com/Suryaprabha19/Business-Analytics-Dashboard" target="_blank" class="proj-github" style="margin-top:0.7rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="excel-card">
+        <p class="excel-label">Dashboard 02</p>
+        <h4 class="excel-name">Road Safety Dashboard</h4>
+        <p class="excel-note">Accident data visualised by region, time of day, and severity with pivot analysis and
+          conditional formatting.</p>
+        <span class="excel-tag">Excel · Pivot Tables</span>
+        <a href="https://github.com/Suryaprabha19/Road-Safety-Analysis-Dashboard" target="_blank" class="proj-github" style="margin-top:0.7rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="excel-card">
+        <p class="excel-label">Dashboard 03</p>
+        <h4 class="excel-name">Sales Dashboard</h4>
+        <p class="excel-note">Revenue vs targets, product mix breakdown, and regional sales comparison with dynamic
+          chart slicers.</p>
+        <span class="excel-tag">Excel · Charts</span>
+        <a href="https://github.com/Suryaprabha19/Sales-Analysis-Dashboard" target="_blank" class="proj-github" style="margin-top:0.7rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="excel-card">
+        <p class="excel-label">Dashboard 04</p>
+        <h4 class="excel-name">Student Mark Analysis</h4>
+        <p class="excel-note">Class performance distribution, subject-wise scoring, and grade band analysis with
+          colour-coded heatmaps.</p>
+        <span class="excel-tag">Excel · Conditional Formatting</span>
+        <a href="https://github.com/Suryaprabha19/Semester-Mark-Analysis-Dashboard" target="_blank" class="proj-github" style="margin-top:0.7rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack">
+    <div class="stack-section">
+      <div class="stack-left">
+        <h2 class="stack-left-h">Tools change.<br>Curiosity doesn't.</h2>
+        <p class="stack-left-p">Each project pulled in a different direction &mdash; and that was the point. New domain,
+          new problem, new stack to figure out. The tools are just how the thinking gets built.</p>
+      </div>
+      <div class="stack-grid">
+        <div>
+          <p class="stack-group-label">AI & LLMs</p>
+          <div class="pill-row">
+            <span class="pill">Groq · LLaMA 3.3 70B</span>
+            <span class="pill">Ollama · LLaMA3.1</span>
+            <span class="pill">Claude API</span>
+            <span class="pill">Anthropic MCP SDK</span>
+            <span class="pill">llava:7b Vision</span>
+          </div>
+        </div>
+        <div>
+          <p class="stack-group-label">ML & Deep Learning</p>
+          <div class="pill-row">
+            <span class="pill">TensorFlow / Keras</span>
+            <span class="pill">PyTorch</span>
+            <span class="pill">scikit-learn</span>
+            <span class="pill">XGBoost · LightGBM</span>
+            <span class="pill">CatBoost</span>
+            <span class="pill">imbalanced-learn</span>
+          </div>
+        </div>
+        <div>
+          <p class="stack-group-label">Computer Vision</p>
+          <div class="pill-row">
+            <span class="pill">MediaPipe</span>
+            <span class="pill">OpenCV</span>
+            <span class="pill">Dlib</span>
+            <span class="pill">Tesseract OCR</span>
+            <span class="pill">K-Means Color</span>
+            <span class="pill">U-Net · 1D CNN</span>
+          </div>
+        </div>
+        <div>
+          <p class="stack-group-label">Backend & Agents</p>
+          <div class="pill-row">
+            <span class="pill">Flask</span>
+            <span class="pill">FastAPI</span>
+            <span class="pill">Node.js + Express</span>
+            <span class="pill">LangGraph</span>
+            <span class="pill">SQLite · MongoDB</span>
+            <span class="pill">JWT Auth</span>
+          </div>
+        </div>
+        <div>
+          <p class="stack-group-label">Frontend & Viz</p>
+          <div class="pill-row">
+            <span class="pill">React 18 + TypeScript</span>
+            <span class="pill">Streamlit</span>
+            <span class="pill">Chart.js</span>
+            <span class="pill">Folium · Leaflet</span>
+            <span class="pill">Plotly</span>
+            <span class="pill">Tkinter · Vanilla JS</span>
+          </div>
+        </div>
+        <div>
+          <p class="stack-group-label">IoT · Deployment · Data</p>
+          <div class="pill-row">
+            <span class="pill">Blynk IoT</span>
+            <span class="pill">ESP32</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Render</span>
+            <span class="pill">Excel · Power Query</span>
+            <span class="pill">Google Colab</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Suryaprabha PJ<span>.</span></div>
+    <p class="footer-note">Built with purpose · Shipped under pressure · Always learning</p>
+  </footer>
+
+</body>
+
+</html>
