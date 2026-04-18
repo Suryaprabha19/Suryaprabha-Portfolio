@@ -368,6 +368,7 @@ section { padding: 80px 5%; }
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.35s;
+  pointer-events: none;
 }
 
 .project:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), var(--glow-v); }
@@ -382,7 +383,7 @@ section { padding: 80px 5%; }
   border-bottom: 1px solid var(--border);
 }
 
-.project-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.project-body { padding: 20px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; }
 
 .project h3 {
   font-size: 1.1rem;
@@ -414,6 +415,8 @@ section { padding: 80px 5%; }
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 .project-links a {
@@ -1085,7 +1088,7 @@ section { padding: 80px 5%; }
         <h3>FAER Scholar Award Program 2025–26</h3>
         <div class="achievement-badge">Shortlisted - Top 65 of 979</div>
         <img src="Images/faer.png" alt="FAER Scholar Award">
-        <p>Project <strong>EcoVision 12</strong> shortlisted <strong>among 65 proposals out of 979</strong> nationwide submissions in FAER's Multidisciplinary Engineering Innovation Challenge 2025–26.</p>
+        <p>Project EcoVision 12<strong> shortlisted among 65 proposals out of 979</strong> nationwide submissions in FAER's Multidisciplinary Engineering Innovation Challenge 2025–26.</p>
       </div>
 
       <div class="achievement-card reveal">
@@ -1101,7 +1104,7 @@ section { padding: 80px 5%; }
         <h3>HackXelerate'26</h3>
         <div class="achievement-badge">Best Girls Team - ₹1,000 Cash Prize</div>
         <img src="Images/HackXelerate.jpeg" alt="HackXelerate">
-        <p>Won <strong>Best Girls Team</strong> at HackXelerate with <strong>Repuatix</strong>, a 6-agent LangGraph citation sentiment intelligence pipeline. <strong>₹1,000 cash prize.</strong></p>
+        <p>Won <strong>Best Girls Team</strong> at HackXelerate with Repuatix, a 6-agent LangGraph citation sentiment intelligence pipeline. <strong>₹1,000 cash prize.</strong></p>
       </div>
 
     </div>
