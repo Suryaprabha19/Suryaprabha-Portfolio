@@ -460,6 +460,138 @@ section { padding: 80px 5%; }
   box-shadow: var(--glow-v);
 }
 
+
+
+/* ============================================================
+   INTERNSHIP & PUBLICATIONS - RESPONSIVE LAYOUT
+   ============================================================ */
+
+#internship {
+  background: var(--bg);
+}
+
+#publications {
+  background: var(--bg2);
+}
+
+/* Use the full available section width */
+#internship .internship-grid,
+#publications .publication-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Internship card */
+#internship .internship-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Conference cards: two equal columns on wide screens */
+#publications .publication-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#publications .publication-card {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+#internship .project-body,
+#publications .project-body {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 28px;
+}
+
+/* Keep headings and paragraphs readable */
+#internship .project h3,
+#publications .project h3 {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+#internship .project p,
+#publications .project p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+/* Certificate images: preserve the full certificate */
+.publication-certificate-link {
+  display: flex;
+  width: 100%;
+  height: 260px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+}
+
+.publication-certificate {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.publication-certificate:hover {
+  transform: scale(1.025);
+}
+
+/* Publication status */
+#publications .achievement-badge {
+  margin-top: 12px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 800px) {
+  #publications .publication-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #internship .project-body,
+  #publications .project-body {
+    padding: 22px;
+  }
+
+  .publication-certificate-link {
+    height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  #internship .project-body,
+  #publications .project-body {
+    padding: 18px;
+  }
+
+  .publication-certificate-link {
+    height: 190px;
+  }
+}
+
+
+
+
 /* ============================================================
    SKILLS
    ============================================================ */
@@ -827,6 +959,8 @@ section { padding: 80px 5%; }
     <nav class="navbar">
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
+      <a href="#internship">Internship</a>
+      <a href="#publications">Publications</a>
       <a href="#skills">Skills</a>
       <a href="#achievements">Achievements</a>
       <a href="#competitive">Coding</a>
@@ -978,6 +1112,133 @@ section { padding: 80px 5%; }
       </a>
     </div>
   </section>
+
+  
+  <!-- ═══════════════ INTERNSHIP EXPERIENCE ═══════════════ -->
+  <section id="internship">
+    <div class="sec-head">
+      <span class="sec-label">Industry Experience</span>
+      <h2 class="sec-title">Internship <span>Experience</span></h2>
+    </div>
+
+    <div class="internship-grid">
+      <div class="project internship-card reveal">
+        <div class="project-body">
+          <h3>Ecrio India Pvt. Ltd.</h3>
+
+          <p><strong>Role:</strong> AI/ML Intern</p>
+          <p><strong>Duration:</strong> 4 August – 14 September 2026</p>
+
+          <p><strong>Project: ZYVEN – AI Video Analytics Platform</strong></p>
+
+          <p>
+            Developed an AI-powered video analytics platform
+            for video inference, persistent object tracking, trajectory
+            analysis, and temporal event detection.
+          </p>
+
+          <p>
+            Implemented event analysis for object appearance and disappearance,
+            stationary behaviour, and proximity events, along with event
+            aggregation, deduplication, and natural-language summaries.
+          </p>
+
+          <p>
+            Worked with Modular MAX inference, SQLite, and a React,
+            TypeScript, and Tailwind CSS dashboard.
+          </p>
+
+          <p>
+            <strong>Testing:</strong> Successfully passed 25 automated tests.
+          </p>
+
+          <div class="project-stack">
+            Python · MAX · Mojo · SQLite · React · TypeScript · Tailwind CSS
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/Suryaprabha19"
+              target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i> GitHub Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ═══════════════ RESEARCH & PUBLICATIONS ═══════════════ -->
+  <section id="publications">
+    <div class="sec-head">
+      <span class="sec-label">Research Contributions</span>
+      <h2 class="sec-title">Research &amp; <span>Publications</span></h2>
+    </div>
+
+    <div class="publication-grid">
+
+      <!-- Conference Paper 1 -->
+      <div class="project publication-card reveal">
+        <div class="project-body">
+          <img
+            src="Images/conference1.png"
+            alt="ICoICI 2026 Certificate of Presentation"
+            class="publication-certificate"
+            loading="lazy">
+
+          <h3>
+            Repuatix: A Citation Intelligence Framework for
+            Next-Generation Bibliometric Analysis
+          </h3>
+
+          <p>
+            Presented at the 4th International Conference on Intelligent
+            Cyber Physical System and Internet of Things (ICoICI 2026).
+          </p>
+
+          <p>
+            <strong>Organiser:</strong>
+            JCT College of Engineering and Technology, Coimbatore
+          </p>
+
+          <p><strong>Conference dates:</strong> 1–3 September 2026</p>
+
+          <div class="achievement-badge">Paper Presented · 2026</div>
+        </div>
+      </div>
+
+      <!-- Conference Paper 2 -->
+      <div class="project reveal">
+        <div class="project-body">
+          <img
+            src="Images/conference2.png"
+            alt="ICECA 2026 Certificate of Presentation"
+            class="publication-certificate"
+            loading="lazy">
+          <h3>
+            A Comparative Evaluation of Hybrid Resampling Techniques
+            for Class Imbalance
+          </h3>
+
+          <p>
+            Presented at the 10th International Conference on Electronics,
+            Communication and Aerospace Technology (ICECA 2026).
+          </p>
+
+          <p>
+            <strong>Organiser:</strong>
+            RVS Institute of Technology, Coimbatore
+          </p>
+
+          <p><strong>Conference dates:</strong> 26–28 October 2026</p>
+
+          <div class="achievement-badge">Paper Presented · 2026</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 
   <!-- ═══════════════ SKILLS ═══════════════ -->
   <section id="skills">
